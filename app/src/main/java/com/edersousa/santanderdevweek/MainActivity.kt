@@ -2,51 +2,34 @@ package com.edersousa.santanderdevweek
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
+import android.view.Menu
+import android.view.MenuItem
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        minhaIdade()
-        // DEC VARIAVEIS
-            //val = não muda
-            //var = mutavel
-        var contador : Int = 10
-            contador = 11
-
-        val contador2 : Int = 11
-            contador = 12
-
-        // SEGURANÇA Nula
-        val languange : String? = null
-
-        // CONDICIONAIS
-        var idade = 20
-        if(idade > 18) {
-            println("Você é maior de idade")
-        } else {
-            println("Você é menor de idade")
-        }
-
-        val minhaIdade : String = if(idade > 18) {
-            "Você é maior de idade"
-        } else {
-            "Você é menor de idade"
-        }
-
-        // when
-        val minhaIdade2 = when {
-            idade > 18 -> "Você é maior de idade"
-            else -> "Você é menor de idade"
-        }
-
-        val medicamento = Medicamento("Teste 1", "2x ao dia")
-        medicamento.formula
+        setSupportActionBar(findViewById(R.id.toolbar))
     }
 
-    /*fun minhaIdade() : String {
-        return "Minha idade é 18"
-    }*/
-    fun minhaIdade() : String =
-        "Minha idade é 18"
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        val inflate = menuInflater
+        inflate.inflate(R.menu.main_menu, menu)
+        return true
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        return when (item.itemId) {
+            R.id.item_1 -> {
+                Log.d("CLICK", "Click no item 1")
+                true
+            }
+            R.id.item_2 -> {
+                Log.d("CLICK", "Click no item 2")
+                true
+            }
+            else -> super.onOptionsItemSelected(item)
+        }
+    }
 }

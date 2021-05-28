@@ -24,12 +24,7 @@ class MainActivity : AppCompatActivity() {
             R.id.item_1 -> {
                 Log.d("CLICK", "Click no item 1")
                 true
-            }
-            R.id.item_2 -> {
-                Log.d("CLICK", "Click no item 2")
-                true
-            }
-            else -> super.onOptionsItemSelected(item)
+            } else -> super.onOptionsItemSelected(item)
         }
     }
 }

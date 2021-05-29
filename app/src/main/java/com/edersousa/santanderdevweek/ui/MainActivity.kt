@@ -22,6 +22,8 @@ class MainActivity : AppCompatActivity() {
 
         mainViewModel = ViewModelProvider(this).get(MainViewModel::class.java)
         buscarContaCliente()
+
+        //throw RuntimeException("Test Crash") //Force a crash
     }
 
     private fun buscarContaCliente() {
